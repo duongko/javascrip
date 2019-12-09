@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=>, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ĐƠN HÀNG THANH TOÁN</title>
+    <script src="public/jquery-3.4.1.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="banner">
+        <div class="wrap">
+            <a href="http://www.lyos.vn/" class="logo">
+                <h1 class="logo-text">
+                    LYOS
+                </h1>
+            </a>
+        </div>
+        <button class="order-summary-toggle order-summary-toggle-hide">
+            <div class="wrap">
+                <div class="order-summary-toggle-inner">
+                    <div class="order-summary-toggle-icon-wrapper">
+                        <svg width="20" height="19" xmlns="https://www.w3.org/2000/svg"
+                            class="order-summary-toggle-icon">
+                            <path
+                                d="M 17.178 13.088 H 5.453 c -0.454 0 -0.91 -0.364 -0.91 -0.818 L 3.727 1.818 H 0 V 0 h 4.544 c 0.455 0 0.91 0.364 0.91 0.818 l 0.09 1.272 h 13.45 c 0.274 0 0.547 0.09 0.73 0.364 c 0.18 0.182 0.27 0.454 0.18 0.727 l -1.817 9.18 c -0.09 0.455 -0.455 0.728 -0.91 0.728 Z M 6.27 11.27 h 10.09 l 1.454 -7.362 H 5.634 l 0.637 7.362 Z m 0.092 7.715 c 1.004 0 1.818 -0.813 1.818 -1.817 s -0.814 -1.818 -1.818 -1.818 s -1.818 0.814 -1.818 1.818 s 0.814 1.817 1.818 1.817 Z m 9.18 0 c 1.004 0 1.817 -0.813 1.817 -1.817 s -0.814 -1.818 -1.818 -1.818 s -1.818 0.814 -1.818 1.818 s 0.814 1.817 1.818 1.817 Z">
+                            </path>
+                        </svg>
+                    </div>
+                    <div class="order-summary-toggle-text order-summary-toggle-text-show">
+                        <span>Hiển thị thông tin đơn hàng</span>
+                        <svg width="11" height="6" xmlns="https://www.w3.org/2000/svg"
+                            class="order-summary-toggle-dropdown" fill="#000">
+                            <path
+                                d="M 0.504 1.813 l 4.358 3.845 l 0.496 0.438 l 0.496 -0.438 l 4.642 -4.096 L 9.504 0.438 L 4.862 4.534 h 0.992 L 1.496 0.69 L 0.504 1.812 Z">
+                            </path>
+                        </svg>
+                    </div>
+                    <div class="order-summary-toggle-text order-summary-toggle-text-hide">
+                        <span>Ẩn thông tin đơn hàng</span>
+                        <svg width="11" height="7" xmlns="https://www.w3.org/2000/svg"
+                            class="order-summary-toggle-dropdown" fill="#000">
+                            <path
+                                d="M 6.138 0.876 L 5.642 0.438 l -0.496 0.438 L 0.504 4.972 l 0.992 1.124 L 6.138 2 l -0.496 0.436 l 3.862 3.408 l 0.992 -1.122 L 6.138 0.876 Z">
+                            </path>
+                        </svg>
+                    </div>
+                    <div class="order-summary-toggle-total-recap" data-checkout-payment-due-target="8000000">
+                        <span class="total-recap-fianl-price">8000000</span>
+                    </div>
+                </div>
+            </div>
+        </button>
+        <div class="content content-second">
+            <div class="wrap">
+                <div class="sidebar sidebar-second">
+                    <div class="sidebar-content">
+                        <div class="order-summary order-summary-toggle-is-expanded">
+                            <div class="order-summary-sections">
+                                <div class="order-summary-sections order-summary-sections-discount"
+                                    data-order-summary-section="discount">
+                                    <form id="form_discount_add" accept-charset="UTF-8" method="post">
+                                        <input name="utf8" type="hidden" value="✓">
+                                        <div class="fieldset">
+                                            <div class="field">
+                                                <div class="field-input-btn-wrapper">
+                                                    <div class="field-input-wrapper">
+                                                        <label class="field-label" for="discount.code">Mã giảm
+                                                            giá</label>
+                                                        <input placeholder="Mã giảm giá" class="feild-input"
+                                                            data-discount-feild="true" autocomplete="off"
+                                                            autocapitalize="off" spellcheck="false" size="30"
+                                                            type="text" id="discount.code" name="discount.code" value>
+                                                    </div>
+                                                    <button type="submit"
+                                                        class="feild-input-btn btn btn-default btn-disabled">
+                                                        <span class="btn-content">Sử dụng</span>
+                                                        <i class="btn-spinner icon icon-button-spinner"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="wrap ">
+                <div class="sidebar">
+                    <div class="sidebar-content">
+                        <div class="order-summary order-summary-is-collapsed">
+                            <h2 class="visually-hidden">Thông tin đơn hàng</h2>
+                            <div class="order-summary-sections">
+                                <div class="order-summary-section order-summary-section-product-list"
+                                    data-order-summary-section="line-items">
+                                    <table class="product-table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">
+                                                    <span class="visualyy-hidden">Hình ảnh</span>
+                                                </th>
+                                                <th scope="col">
+                                                    <span class="visually-hidden">Mô tả</span>
+                                                </th>
+                                                <th scope="col">
+                                                    <span class="visually-hidden">Số lượng</span>
+                                                </th>
+                                                <th scope="col">
+                                                    <span class="visually-hidden">Giá</span>
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="product" data-product-id="" data-variant-id="">
+                                                <td class="product-image">
+                                                    <div class="product-thumnail">
+                                                        <div class="product-thumbnail-wrapped">
+                                                            <img class="product-thumbnail-image"
+                                                                src="https://i.pinimg.com/originals/c7/7b/f8/c77bf83070e632bc091e96899047d7f8.jpg"
+                                                                alt="noting">
+                                                        </div>
+                                                        <span class="product-thumnail-quantity"
+                                                            aria-hidden="true">1</span>
+                                                    </div>
+                                                </td>
+                                                <td class="product-description">
+                                                    <span
+                                                        class="product-description-name order-summary-emphasis">Jacket</span>
+                                                    <span
+                                                        class="product-description-variant order-summary-small-text">M</span>
+                                                </td>
+                                                <td class="product-quantity visually-hidden">1</td>
+                                                <td class="product-price">
+                                                    <span class="order-summary-emphasis">8000000</span>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="order-summary-section order-summary-section-discount"
+                                    data-order-summary-section="discount">
+                                    <form id="form_discount_add" accept-charset="UTF-8" method="post">
+                                        <input name="utf8" type="hidden" value="✓">
+                                        <div class="fieldset">
+                                            <div class="field">
+                                                <div class="field-input-btn-wrapper">
+                                                    <div class="field-input-wrapper">
+                                                        <label class="field-label" for="discount.code"> Mã giảm
+                                                            giá</label>
+                                                        <input placeholder="Mã giảm giá" class="field-input"
+                                                            data-discount-field="true" autocomplete="off"
+                                                            autocapitalize="off" spellcheck="false" size="30"
+                                                            type="text" id="discount.code" name="discount.code" value>
+                                                    </div>
+                                                    <button type="submit"
+                                                        class="field-input-btn btn btn-default btn-disabled">
+                                                        <span class="btn-content">Sử dụng</span>
+                                                        <i class="btn-spinner icon icon-button-spinner"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="order-summary-section order-summary-section-total-lines"
+                                    data-order-summary-section="payment-lines">
+                                    <table class="total-line-table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">
+                                                    <span class="visually-hidden">Mô tả</span>
+                                                </th>
+                                                <th scope="col">
+                                                    <span class="visually-hidden">Giá</span>
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="total-line total-line-subtotal">
+                                                <td class="total-line-name">Tạm tính</td>
+                                                <td class="total-line-price">
+                                                    <span class="order-summary-emphasis"
+                                                        data-checkout-subtotal-price-target="8000000">8000000</span>
+                                                </td>
+                                            </tr>
+                                            <tr class="total-line total-line-shipping">
+                                                <td class="total-line-name">Phí vận chuyển</td>
+                                                <td class="total-line-price">
+                                                    <span class="order-summary-emphasis"
+                                                        data-checkout-total-shipping-target="0">
+                                                        -
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                        <tfoot class="total-line-table-footer">
+                                            <tr class="total-line">
+                                                <td class="total-line-name payment-due-label">
+                                                    <span class="payment-due-label-total">Tổng cộng</span>
+                                                </td>
+                                                <td class="total-line-name payment-due"><span
+                                                        class="payment-due-currency">VND</span>
+                                                    <span class="payment-due-price"
+                                                        data-checkout-payment-due-target="8000000">8000000</span></td>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
